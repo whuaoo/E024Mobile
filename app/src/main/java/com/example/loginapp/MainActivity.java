@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private EditText eName;
     private EditText ePassword;
-    private Button eLogin;
+    private Button eLogin,UserProfile;
     private TextView eAttemptsInfo;
 
     private String Username = "Admin";
@@ -28,9 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
     boolean isValid = false;
     private int counter = 5;
-
-
-
 
 
     @Override
@@ -42,8 +39,16 @@ public class MainActivity extends AppCompatActivity {
         ePassword = findViewById(R.id.etPassword);
         eLogin = findViewById(R.id.btnLogin);
         eAttemptsInfo = findViewById(R.id.tvAttemptsInfo);
+        UserProfile = findViewById(R.id.btn_userprofile);
+        UserProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Directing to User Profile page!", Toast.LENGTH_SHORT).show();
 
-
+                // Add the code to go to new activity
+                Intent intent = new Intent(MainActivity.this, UserprofileActivity.class);
+                startActivity(intent);
+            }});
         eLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

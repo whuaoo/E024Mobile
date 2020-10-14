@@ -1,5 +1,6 @@
 package com.example.loginapp;
 
+import android.content.ClipData;
 import android.content.Context;
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobileconnectors.dynamodbv2.document.Table;
@@ -34,10 +35,15 @@ public class DatabaseAccess {
         }
         return instance;
     }
+    public boolean putItem (Document item){
+        dbTable.putItem(item);
+        return true;
+    }
     public Document getItem (String user_id){
         Document result = dbTable.getItem(new Primitive(credentialsProvider.getCachedIdentityId()), new Primitive(user_id));
         return result;
     }
+
     public List<Document> getAllItems() {
         return dbTable.query(new Primitive("9988")).getAllResults();
     }
