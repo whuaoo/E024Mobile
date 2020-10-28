@@ -60,7 +60,6 @@ public class DatabaseAccess {
     //get student's profile by userID
     public Document getById(int user_id) {
         return  dbTable.getItem(new Primitive(user_id));
-
     }
 
     //get all student's profile
