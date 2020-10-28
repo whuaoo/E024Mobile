@@ -44,9 +44,9 @@ public class DatabaseAccess {
         if (!memo.containsKey("userId")) {
             memo.put("userId", credentialsProvider.getCachedIdentityId());
         }
-        if (!memo.containsKey("noteId")) {
-            memo.put("noteId", UUID.randomUUID().toString());
-        }
+        //if (!memo.containsKey("noteId")) {
+         //   memo.put("noteId", UUID.randomUUID().toString());
+      //  }
         if (!memo.containsKey("creationDate")) {
             memo.put("creationDate", System.currentTimeMillis());
         }
@@ -58,11 +58,14 @@ public class DatabaseAccess {
     }
 
     //get student's profile by userID
-    public Document getById(String id) {
-        return dbTable.getItem(new Primitive(credentialsProvider.getCachedIdentityId()), new Primitive(id));
+    public Document getById(int user_id) {
+        return  dbTable.getItem(new Primitive(user_id));
+
     }
+
     //get all student's profile
-    public List  <Document> getAllItems() {
+    public List<Document> getAllItems() {
+
         return dbTable.query(new Primitive(credentialsProvider.getCachedIdentityId())).getAllResults();
     }
 

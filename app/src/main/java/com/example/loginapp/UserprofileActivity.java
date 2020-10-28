@@ -6,10 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
+
 import com.amazonaws.mobileconnectors.dynamodbv2.document.datatype.Document;
-import com.amazonaws.mobileconnectors.dynamodbv2.document.datatype.Primitive;
-import java.util.List;
 
 public class UserprofileActivity extends AppCompatActivity {
     private String TAG = "DynamoDb_Demo";
@@ -31,16 +29,16 @@ public class UserprofileActivity extends AppCompatActivity {
             }
         });
     }
-    private class GetAllItemsAsyncTask extends AsyncTask<Void, Void, List<Document>> {
+    private class GetAllItemsAsyncTask extends AsyncTask<Void, Void, Document> {
         @Override
-        protected List<Document> doInBackground(Void... params) {
+        protected Document doInBackground(Void... params) {
             DatabaseAccess databaseAccess = DatabaseAccess.getInstance(UserprofileActivity.this);
-            Log.d(TAG, "databases content"+databaseAccess.getAllItems().toString());
-            return databaseAccess.getAllItems();
+            Log.d(TAG, "databases content"+databaseAccess.getById(2).toString());
+            return databaseAccess.getById(2);
         }
 
         @Override
-        protected void onPostExecute(List<Document> documents) {
+        protected void onPostExecute(Document documents) {
         }
 
     }
