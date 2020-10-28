@@ -4,13 +4,17 @@ import android.content.ClipData;
 import android.content.Context;
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobileconnectors.dynamodbv2.document.Table;
+import com.amazonaws.mobileconnectors.dynamodbv2.document.UpdateItemOperationConfig;
 import com.amazonaws.mobileconnectors.dynamodbv2.document.datatype.Document;
 import com.amazonaws.mobileconnectors.dynamodbv2.document.datatype.Primitive;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.amazonaws.services.dynamodbv2.model.ReturnValue;
 
 import java.util.List;
+import java.util.UUID;
+
 public class DatabaseAccess {
     private static final String COGNITO_POOL_ID = "ap-southeast-1:bc4ee47c-2035-4b45-971c-0b6e7e4e8b87";
     private static final Regions MY_REGION = Regions.AP_SOUTHEAST_1;
@@ -35,17 +39,31 @@ public class DatabaseAccess {
         }
         return instance;
     }
-    public boolean putItem (Document item){
-        dbTable.putItem(item);
-        return true;
+    //register student
+    public void create(Document memo) {
+        if (!memo.containsKey("userId")) {
+            memo.put("userId", credentialsProvider.getCachedIdentityId());
+        }
+        if (!memo.containsKey("noteId")) {
+            memo.put("noteId", UUID.randomUUID().toString());
+        }
+        if (!memo.containsKey("creationDate")) {
+            memo.put("creationDate", System.currentTimeMillis());
+        }
+        dbTable.putItem(memo);
     }
-    public Document getItem (String user_id){
-        Document result = dbTable.getItem(new Primitive(credentialsProvider.getCachedIdentityId()), new Primitive(user_id));
-        return result;
+    //update student's profile
+    public void update(Document memo) {
+        Document document = dbTable.updateItem(memo, new UpdateItemOperationConfig().withReturnValues(ReturnValue.ALL_NEW));
     }
 
-    public List<Document> getAllItems() {
-        return dbTable.query(new Primitive("9988")).getAllResults();
+    //get student's profile by userID
+    public Document getById(String id) {
+        return dbTable.getItem(new Primitive(credentialsProvider.getCachedIdentityId()), new Primitive(id));
+    }
+    //get all student's profile
+    public List  <Document> getAllItems() {
+        return dbTable.query(new Primitive(credentialsProvider.getCachedIdentityId())).getAllResults();
     }
 
 }
