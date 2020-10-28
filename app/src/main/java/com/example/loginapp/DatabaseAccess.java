@@ -26,7 +26,7 @@ public class DatabaseAccess {
         this.context =context;
         credentialsProvider = new CognitoCachingCredentialsProvider (context, COGNITO_POOL_ID, MY_REGION);
         dbClient = new AmazonDynamoDBClient(credentialsProvider);
-        dbClient.setRegion(Region.getRegion(Regions.AP_SOUTH_1));
+        dbClient.setRegion(Region.getRegion(Regions.AP_SOUTHEAST_1));
         dbTable = Table.loadTable(dbClient, DYNAMODB_TABLE);
     }
     public static synchronized DatabaseAccess getInstance(Context context) {

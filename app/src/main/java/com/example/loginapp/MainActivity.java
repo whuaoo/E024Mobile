@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         eLogin = findViewById(R.id.btnLogin);
         eAttemptsInfo = findViewById(R.id.tvAttemptsInfo);
         UserProfile = findViewById(R.id.btn_userprofile);
+
+
         UserProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
