@@ -6,7 +6,6 @@ import android.os.Bundle;
 
 public class HomePageActivity extends AppCompatActivity {
     //lolololo
-    //yipho was here
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
