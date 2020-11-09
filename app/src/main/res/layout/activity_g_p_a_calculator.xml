@@ -1,0 +1,242 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150px"
+        android:text="GPA CALCULATOR"
+        android:textSize="80px"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="175px"
+        android:layout_marginTop="350px"
+        android:text="MOD 1: "
+        android:textSize="50px"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="175px"
+        android:layout_marginTop="500px"
+        android:text="MOD 2: "
+        android:textSize="50px"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="175px"
+        android:layout_marginTop="650px"
+        android:text="MOD 3: "
+        android:textSize="50px"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="175px"
+        android:layout_marginTop="800px"
+        android:text="MOD 4: "
+        android:textSize="50px"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="175px"
+        android:layout_marginTop="950px"
+        android:text="MOD 5: "
+        android:textSize="50px"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="175px"
+        android:layout_marginTop="1100px"
+        android:text="GPA: "
+        android:textSize="50px"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/e1"
+        android:layout_width="300px"
+        android:layout_height="120px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="325px"
+        android:hint="Enter Grade"
+        android:inputType="number|text"
+        android:textSize="40px" />
+
+    <EditText
+        android:id="@+id/f1"
+        android:layout_width="300px"
+        android:layout_height="120px"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="325px"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:hint="Credits"
+        android:inputType="number"
+        android:textSize="40px"
+        tools:text="Credit"
+        tools:visibility="visible" />
+
+    <EditText
+        android:id="@+id/f2"
+        android:layout_width="300px"
+        android:layout_height="120px"
+        android:layout_below="@+id/f1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="269dp"
+        android:layout_marginLeft="269dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:hint="Credits"
+        android:inputType="number"
+        android:textSize="40px"
+        tools:text="Credit"
+        tools:visibility="visible" />
+
+    <EditText
+        android:id="@+id/f3"
+        android:layout_width="300px"
+        android:layout_height="120px"
+        android:layout_below="@+id/f2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="269dp"
+        android:layout_marginLeft="269dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:hint="Credits"
+        android:inputType="number"
+        android:textSize="40px"
+        tools:text="Credit"
+        tools:visibility="visible" />
+
+    <EditText
+        android:id="@+id/f4"
+        android:layout_width="300px"
+        android:layout_height="120px"
+        android:layout_below="@+id/f3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="271dp"
+        android:layout_marginLeft="271dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:hint="Credits"
+        android:inputType="number"
+        android:textSize="40px"
+        tools:text="Credit"
+        tools:visibility="visible" />
+
+    <EditText
+        android:id="@+id/f5"
+        android:layout_width="300px"
+        android:layout_height="120px"
+        android:layout_below="@+id/f4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="271dp"
+        android:layout_marginLeft="271dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:hint="Credits"
+        android:inputType="number"
+        android:textSize="40px"
+        tools:text="Credit"
+        tools:visibility="visible" />
+
+    <EditText
+        android:id="@+id/e2"
+        android:layout_width="300px"
+        android:layout_height="120px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="475px"
+        android:hint="Enter Grade"
+        android:inputType="number|text"
+        android:textSize="40px" />
+
+    <EditText
+        android:id="@+id/e3"
+        android:layout_width="300px"
+        android:layout_height="120px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="625px"
+        android:hint="Enter Grade"
+        android:inputType="number|text"
+        android:textSize="40px" />
+
+    <EditText
+        android:id="@+id/e4"
+        android:layout_width="300px"
+        android:layout_height="120px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="775px"
+        android:hint="Enter Grade"
+        android:inputType="number|text"
+        android:textSize="40px" />
+
+    <EditText
+        android:id="@+id/e5"
+        android:layout_width="300px"
+        android:layout_height="120px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="925px"
+        android:hint="Enter Grade"
+        android:inputType="number|text"
+        android:textSize="40px" />
+
+    <TextView
+        android:id="@+id/t"
+        android:layout_width="300px"
+        android:layout_height="120px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1075px"
+        android:gravity="center"
+        android:textSize="60px" />
+
+    <TextView
+        android:id="@+id/warning"
+        android:layout_width="700px"
+        android:layout_height="100px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1180px"
+        android:gravity="center"
+        android:textSize="60px" />
+
+    <Button
+        android:id="@+id/b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1300px"
+        android:text="Compute GPA"
+        android:textSize="60px" />
+</RelativeLayout>
