@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         mPreferences = getSharedPreferences(
                 sharedPrefFile, MODE_PRIVATE);
 
-
         //register button function
         eRegister.setOnClickListener(new View.OnClickListener() {
             @Override

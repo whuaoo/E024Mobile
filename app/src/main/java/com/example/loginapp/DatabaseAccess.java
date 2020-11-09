@@ -41,15 +41,10 @@ public class DatabaseAccess {
     }
     //register student
     public void create(Document memo) {
-        if (!memo.containsKey("userId")) {
-            memo.put("userId", credentialsProvider.getCachedIdentityId());
-        }
+
         //if (!memo.containsKey("noteId")) {
          //   memo.put("noteId", UUID.randomUUID().toString());
       //  }
-        if (!memo.containsKey("creationDate")) {
-            memo.put("creationDate", System.currentTimeMillis());
-        }
         dbTable.putItem(memo);
     }
     //get student's profile by username

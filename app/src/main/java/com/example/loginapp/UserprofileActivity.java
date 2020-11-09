@@ -44,42 +44,42 @@ public class UserprofileActivity extends AppCompatActivity {
         });
     }
     private class GetAllItemsAsyncTask extends AsyncTask<Void, Void, Document> {
-        @Override
-        protected Document doInBackground(Void... params) {
-            DatabaseAccess databaseAccess = DatabaseAccess.getInstance(UserprofileActivity.this);
-           Log.d(TAG, "databases content"+databaseAccess.getById(userID).toString());
-            return databaseAccess.getById(userID);
-        }
-
-        @Override
-        protected void onPostExecute(Document document) {
-
-            JSONObject student = null;
-            try {
-                student = new JSONObject(document.toString());
-                JSONObject user_name = new JSONObject( student.get("user_name").toString());
-                username_display.setText(user_name.getString("value"));
-
-                JSONObject student_type = new JSONObject( student.get("Type").toString());
-                usertype_display.setText(student_type.getString("value"));
-
-                JSONObject student_gpa = new JSONObject( student.get("proj_gpa").toString());
-                usergpa_display.setText(student_gpa.getString("value"));
-
-                JSONObject student_credits = new JSONObject( student.get("accum_credits").toString());
-                accum_credits.setText(student_credits.getString("value"));
-
-
-            } catch (JSONException e) {
-                e.printStackTrace();
+            @Override
+            protected Document doInBackground(Void... params) {
+                DatabaseAccess databaseAccess = DatabaseAccess.getInstance(UserprofileActivity.this);
+                Log.d(TAG, "databases content"+databaseAccess.getById(userID).toString());
+                return databaseAccess.getById(userID);
             }
+
+            @Override
+            protected void onPostExecute(Document document) {
+
+                JSONObject student = null;
+                try {
+                    student = new JSONObject(document.toString());
+                    JSONObject user_name = new JSONObject( student.get("user_name").toString());
+                    username_display.setText(user_name.getString("value"));
+
+                    JSONObject student_type = new JSONObject( student.get("Type").toString());
+                    usertype_display.setText(student_type.getString("value"));
+
+                    JSONObject student_gpa = new JSONObject( student.get("proj_gpa").toString());
+                    usergpa_display.setText(student_gpa.getString("value"));
+
+                    JSONObject student_credits = new JSONObject( student.get("accum_credits").toString());
+                    accum_credits.setText(student_credits.getString("value"));
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
                 // usertype_display.setText(student.get("type").toString());
                 // usergpa_display.setText(student.get("proj_gpa").toString());
                 //  accum_credits.setText(student.get("accum_credits").toString());
 
 
-        }
+            }
 
     }
 }
