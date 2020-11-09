@@ -21,7 +21,7 @@ public class DatabaseAccess {
     private AmazonDynamoDBClient dbClient;
     private Table dbTable;
     private Context context;
-    private final String DYNAMODB_TABLE = "User";
+    private final String DYNAMODB_TABLE = "Students";
     CognitoCachingCredentialsProvider credentialsProvider;
 
 
@@ -52,6 +52,11 @@ public class DatabaseAccess {
         }
         dbTable.putItem(memo);
     }
+    //get student's profile by username
+    public Document getByName(String username) {
+        return  dbTable.getItem(new Primitive(username));
+    }
+
     //update student's profile
     public void update(Document memo) {
         Document document = dbTable.updateItem(memo, new UpdateItemOperationConfig().withReturnValues(ReturnValue.ALL_NEW));

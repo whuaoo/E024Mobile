@@ -21,7 +21,7 @@ public class UserprofileActivity extends AppCompatActivity {
     private TextView usertype_display;
     private TextView usergpa_display;
     private TextView accum_credits;
-
+    public int  userID = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class UserprofileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "Getting all devices...");
-                username_display.setText("Getting all devices...");
+                username_display.setText("Getting User Info...");
                 GetAllItemsAsyncTask getAllDevicesTask = new GetAllItemsAsyncTask();
                 getAllDevicesTask.execute();
             }
@@ -47,13 +47,12 @@ public class UserprofileActivity extends AppCompatActivity {
         @Override
         protected Document doInBackground(Void... params) {
             DatabaseAccess databaseAccess = DatabaseAccess.getInstance(UserprofileActivity.this);
-            Log.d(TAG, "databases content"+databaseAccess.getById(2).toString());
-            return databaseAccess.getById(2);
+           Log.d(TAG, "databases content"+databaseAccess.getById(userID).toString());
+            return databaseAccess.getById(userID);
         }
 
         @Override
         protected void onPostExecute(Document document) {
-
 
             JSONObject student = null;
             try {
