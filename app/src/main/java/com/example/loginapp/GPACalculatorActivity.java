@@ -2,6 +2,10 @@ package com.example.loginapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.graphics.Color;
@@ -9,18 +13,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GPACalculatorActivity extends AppCompatActivity{
+    private String TAG = "GPA_Cal";
     Button btn;
     EditText e1, e2, e3, e4, e5, f1, f2, f3, f4, f5;
     TextView tView, tViewWarning;
     int count = 0;
     View view;
+    public SharedPreferences mPreferences;
+    public String sharedPrefFile = "com.example.android.hellosharedprefs";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_g_p_a_calculator);
 
+        mPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE);
         view = this.getWindow().getDecorView();
         view.setBackgroundResource(R.color.blue);
 
@@ -85,6 +94,7 @@ public class GPACalculatorActivity extends AppCompatActivity{
 
 
                         float average = g1*h1 + g2*h2 + g3*h3 + g4*h4 + g5*h5;
+                        float sem_credits = h1 + h2 + h3 + h4 + h5;
                         average = average / (h1 + h2 + h3 + h4 + h5);
                         if (average <= 3) {
                             tView.setText(Float.toString(average));
@@ -96,6 +106,12 @@ public class GPACalculatorActivity extends AppCompatActivity{
                             tView.setText(Float.toString(average));
                             view.setBackgroundResource(R.color.green);
                         }
+                        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+                        preferencesEditor.putString("sem_credits", Float.toString(sem_credits));
+                        preferencesEditor.putString("sem_gpa", Float.toString(average));
+                        preferencesEditor.putString("flag", "true");
+                        preferencesEditor.apply();
+
                         count++;
                         btn.setText("Clear Form");
                         tViewWarning.setText("");
@@ -123,4 +139,11 @@ public class GPACalculatorActivity extends AppCompatActivity{
         });
 
     }
+    public void gobacktohome(View view){
+        startActivity(new Intent(GPACalculatorActivity.this, HomePageActivity.class));
+        Toast.makeText(GPACalculatorActivity.this, "Go Back to Homepage", Toast.LENGTH_SHORT).show();
+    }
+
+
+
 }

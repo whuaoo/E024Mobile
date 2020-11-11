@@ -28,13 +28,13 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText eRegsemCredits;
     private Button eRegister;
     public String regUsername;
-
+    public SharedPreferences mPreferences;
+    public String sharedPrefFile = "com.example.android.hellosharedprefs";
     public static Credentials credentials;
     public static Profile profile;
     public Document newstudent;
     private String TAG = "Dynamodb_register";
-    public SharedPreferences mPreferences;
-    public String sharedPrefFile = "com.example.android.hellosharedprefs";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

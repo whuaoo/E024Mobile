@@ -239,4 +239,17 @@
         android:layout_marginTop="1300px"
         android:text="Compute GPA"
         android:textSize="60px" />
+
+    <Button
+        android:id="@+id/b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="1300px"
+        android:layout_marginEnd="115dp"
+        android:layout_marginBottom="117dp"
+        android:onClick="gobacktohome"
+        android:text="Home"
+        android:textSize="60px" />
 </RelativeLayout>
